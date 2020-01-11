@@ -10,6 +10,8 @@ FROM cmelab/mbuild
 
 RUN apk update && \
     apk add nano less R R-dev && \
+    conda install -y matplotlib jupyter && \
+    conda clean -tipsy
 
 RUN adduser -G root -S jovyan && \
     chown -R jovyan /opt/conda/ /home/jovyan
