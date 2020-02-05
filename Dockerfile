@@ -9,7 +9,7 @@
 FROM cmelab/mbuild
 
 RUN apk update && \
-    apk add nano less R R-dev && \
+    apk add nano less R R-dev texlive-xetex && \
     conda install -y matplotlib jupyter && \
     conda clean -tipsy
 
