@@ -6,11 +6,12 @@
 # How to run just like it'll appear on codelab (or elsewhere)
 # docker run --rm -itp 8888:8888 cmelab/mse150:latest jupyter notebook --notebook-dir=/home/jovyan --ip='*' --port=8888 --no-browser --allow-root
 
-FROM cmelab/mbuild
+FROM frolvlad/alpine-miniconda3 
 
 RUN apk update && \
-    apk add nano less R R-dev texlive-xetex && \
-    conda install -y matplotlib jupyter && \
+    apk add texlive-full && \
+    apk add nano less R R-dev && \
+    conda install -y matplotlib jupyter numpy && \
     conda clean -tipsy
 
 RUN adduser -G root -S jovyan && \
