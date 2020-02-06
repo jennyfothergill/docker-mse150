@@ -8,6 +8,9 @@
 
 FROM frolvlad/alpine-miniconda3 
 
+ENV CONDA_DIR="/opt/conda"
+ENV PATH="$CONDA_DIR/bin:$PATH"
+
 RUN apk update && \
     apk add texlive-full && \
     apk add nano less R R-dev && \
